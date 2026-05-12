@@ -2,8 +2,7 @@
 
 const ANTHROPIC_URL = 'https://api.anthropic.com/v1/messages';
 const MAX_BYTES = 8 * 1024 * 1024;
-const MODEL = process.env.ANTHROPIC_MODEL || 'claude-sonnet-4-20250514';
-
+const MODEL = 'claude-3-5-sonnet-20241022';
 const ALLOWED_MIME = new Set([
   'image/jpeg','image/jpg','image/png','image/webp','image/heic','image/heif',
 ]);
@@ -102,7 +101,7 @@ function parseMultipart(event) {
   return parts;
 }
 
-exports.handler = async (event) => {
+export async function handler(event) {
   if (event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 204,
