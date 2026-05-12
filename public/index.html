@@ -233,7 +233,7 @@ function analyze(){
   err('');phase('loading');
   resize(curFile).then(function(r){
     var fd=new FormData();fd.append('photo',r,'photo.jpg');
-    return fetch('/.netlify/functions/analyze',{method:'POST',body:fd});
+    return fetch('/api/analyze',{method:'POST',body:fd});
   }).then(function(r){
     return r.json().then(function(d){if(!r.ok)throw new Error(d.error||'Falha na análise.');return d;});
   }).then(function(d){renderReport(d);phase('report');g('report').scrollIntoView({behavior:'smooth'});})
