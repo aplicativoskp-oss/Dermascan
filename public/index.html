@@ -261,7 +261,13 @@ function reset(){
   err('');phase('upload');window.scrollTo({top:0,behavior:'smooth'});
 }
 
-(function(){if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia)g('btnCam').style.display='none';phase('upload');})();
+(function(){
+  if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+    g('btnCam').style.display='none';
+  }
+
+  phase('upload');
+})();
 </script>
 </body>
 </html>
