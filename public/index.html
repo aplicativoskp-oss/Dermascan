@@ -211,7 +211,16 @@ function resize(file){
       var w=Math.round(img.naturalWidth*s),h=Math.round(img.naturalHeight*s);
       var c=document.createElement('canvas');c.width=w;c.height=h;
       c.getContext('2d').drawImage(img,0,0,w,h);
-      c.toBlob(function(b){res(new File([b],'photo.jpg',{type:'image/jpeg'}));},'image/jpeg',.85);
+      c.toBlob(function(b){
+
+  if(!b){
+    rej(new Error('Falha ao converter imagem.'));
+    return;
+  }
+
+  res(new File([b],'photo.jpg',{type:'image/jpeg'}));
+
+},'image/jpeg',0.85);
     };
     img.onerror=function(){URL.revokeObjectURL(url);rej(new Error('Erro ao processar imagem.'));};
     img.src=url;
