@@ -1,3 +1,4 @@
+// v2
 const Anthropic = require('@anthropic-ai/sdk');
 
 const PROMPT = `Você é um assistente de análise cosmética visual informativa.
