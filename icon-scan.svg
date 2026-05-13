@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a1814"/>
+      <stop offset="100%" stop-color="#0b0a09"/>
+    </radialGradient>
+    <radialGradient id="skin" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#e8d5a3"/>
+      <stop offset="100%" stop-color="#c9a96e"/>
+    </radialGradient>
+    <radialGradient id="lensGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.15"/>
+      <stop offset="70%" stop-color="#c9a96e" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#c9a96e" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="faceClip">
+      <ellipse cx="256" cy="255" rx="95" ry="115"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <circle cx="256" cy="256" r="256" fill="url(#bg)"/>
+
+  <!-- Subtle grid background -->
+  <g opacity="0.06" stroke="#c9a96e" stroke-width="0.8">
+    <line x1="0" y1="128" x2="512" y2="128"/>
+    <line x1="0" y1="256" x2="512" y2="256"/>
+    <line x1="0" y1="384" x2="512" y2="384"/>
+    <line x1="128" y1="0" x2="128" y2="512"/>
+    <line x1="256" y1="0" x2="256" y2="512"/>
+    <line x1="384" y1="0" x2="384" y2="512"/>
+  </g>
+
+  <!-- Neck -->
+  <path d="M 226 340 Q 226 380 220 395 Q 238 400 256 400 Q 274 400 292 395 Q 286 380 286 340 Z" fill="url(#skin)"/>
+
+  <!-- Face -->
+  <ellipse cx="256" cy="255" rx="95" ry="115" fill="url(#skin)"/>
+
+  <!-- Hair -->
+  <path d="M 161 240 Q 155 180 175 150 Q 195 118 256 112 Q 317 118 337 150 Q 357 180 351 240 Q 340 200 320 185 Q 295 168 256 165 Q 217 168 192 185 Q 172 200 161 240 Z" fill="#2a2015"/>
+  <path d="M 163 250 Q 155 210 170 175 Q 172 200 175 220 Z" fill="#2a2015"/>
+  <path d="M 349 250 Q 357 210 342 175 Q 340 200 337 220 Z" fill="#2a2015"/>
+
+  <!-- Ears -->
+  <ellipse cx="163" cy="262" rx="12" ry="16" fill="#c9a96e"/>
+  <ellipse cx="349" cy="262" rx="12" ry="16" fill="#c9a96e"/>
+
+  <!-- Eyebrows -->
+  <path d="M 200 210 Q 218 202 236 206" stroke="#6a4f2a" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M 276 206 Q 294 202 312 210" stroke="#6a4f2a" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- Eyes -->
+  <ellipse cx="218" cy="232" rx="20" ry="11" fill="#1a1410"/>
+  <ellipse cx="218" cy="232" rx="12" ry="10" fill="#3a2a1a"/>
+  <circle cx="218" cy="232" r="7" fill="#1a0f05"/>
+  <circle cx="222" cy="228" r="2.5" fill="white" opacity="0.8"/>
+
+  <ellipse cx="294" cy="232" rx="20" ry="11" fill="#1a1410"/>
+  <ellipse cx="294" cy="232" rx="12" ry="10" fill="#3a2a1a"/>
+  <circle cx="294" cy="232" r="7" fill="#1a0f05"/>
+  <circle cx="298" cy="228" r="2.5" fill="white" opacity="0.8"/>
+
+  <!-- Nose -->
+  <path d="M 248 278 Q 244 284 246 287 Q 250 290 256 289 Q 262 290 266 287 Q 268 284 264 278" fill="none" stroke="#b8946060" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Lips -->
+  <path d="M 232 308 Q 244 302 256 304 Q 268 302 280 308 Q 268 312 256 312 Q 244 312 232 308 Z" fill="#c9a96e"/>
+  <path d="M 232 308 Q 244 316 256 318 Q 268 316 280 308 Q 268 322 256 323 Q 244 322 232 308 Z" fill="#b8855a"/>
+
+  <!-- Cheek blush -->
+  <ellipse cx="196" cy="272" rx="22" ry="12" fill="#d4906880" opacity="0.25"/>
+  <ellipse cx="316" cy="272" rx="22" ry="12" fill="#d4906880" opacity="0.25"/>
+
+  <!-- SCAN LINE sweeping across face -->
+  <rect x="161" y="248" width="190" height="2" fill="#c9a96e" opacity="0.9" filter="url(#glow)"/>
+  <rect x="161" y="248" width="190" height="8" fill="#c9a96e" opacity="0.08"/>
+
+  <!-- Scan data points on face -->
+  <g fill="#c9a96e" filter="url(#softglow)">
+    <circle cx="218" cy="232" r="3" opacity="0.9"/>
+    <circle cx="294" cy="232" r="3" opacity="0.9"/>
+    <circle cx="256" cy="285" r="2.5" opacity="0.8"/>
+    <circle cx="256" cy="248" r="2" opacity="0.7"/>
+    <circle cx="220" cy="308" r="2" opacity="0.7"/>
+    <circle cx="292" cy="308" r="2" opacity="0.7"/>
+    <circle cx="190" cy="255" r="1.5" opacity="0.5"/>
+    <circle cx="322" cy="255" r="1.5" opacity="0.5"/>
+  </g>
+
+  <!-- Scan connection lines -->
+  <g stroke="#c9a96e" stroke-width="0.8" opacity="0.35" fill="none">
+    <line x1="218" y1="232" x2="256" y2="248"/>
+    <line x1="294" y1="232" x2="256" y2="248"/>
+    <line x1="218" y1="232" x2="220" y2="308"/>
+    <line x1="294" y1="232" x2="292" y2="308"/>
+    <line x1="220" y1="308" x2="256" y2="285"/>
+    <line x1="292" y1="308" x2="256" y2="285"/>
+  </g>
+
+  <!-- LENS / SCANNER FRAME - main rectangle with rounded corners -->
+  <rect x="148" y="128" width="216" height="256" rx="12" ry="12"
+        fill="none" stroke="#c9a96e" stroke-width="2.5" opacity="0.9" filter="url(#glow)"/>
+
+  <!-- Lens inner glow -->
+  <rect x="148" y="128" width="216" height="256" rx="12" ry="12"
+        fill="url(#lensGlow)"/>
+
+  <!-- Corner brackets - top left -->
+  <path d="M 148 168 L 148 140 Q 148 128 160 128 L 188 128" stroke="#c9a96e" stroke-width="4" fill="none" stroke-linecap="round" filter="url(#glow)"/>
+  <!-- Corner brackets - top right -->
+  <path d="M 364 168 L 364 140 Q 364 128 352 128 L 324 128" stroke="#c9a96e" stroke-width="4" fill="none" stroke-linecap="round" filter="url(#glow)"/>
+  <!-- Corner brackets - bottom left -->
+  <path d="M 148 344 L 148 372 Q 148 384 160 384 L 188 384" stroke="#c9a96e" stroke-width="4" fill="none" stroke-linecap="round" filter="url(#glow)"/>
+  <!-- Corner brackets - bottom right -->
+  <path d="M 364 344 L 364 372 Q 364 384 352 384 L 324 384" stroke="#c9a96e" stroke-width="4" fill="none" stroke-linecap="round" filter="url(#glow)"/>
+
+  <!-- Side tick marks -->
+  <g stroke="#c9a96e" stroke-width="1.5" opacity="0.5">
+    <line x1="148" y1="220" x2="158" y2="220"/>
+    <line x1="148" y1="256" x2="162" y2="256"/>
+    <line x1="148" y1="292" x2="158" y2="292"/>
+    <line x1="354" y1="220" x2="364" y2="220"/>
+    <line x1="350" y1="256" x2="364" y2="256"/>
+    <line x1="354" y1="292" x2="364" y2="292"/>
+  </g>
+
+  <!-- Top data readout -->
+  <g opacity="0.6">
+    <rect x="192" y="108" width="128" height="16" rx="2" fill="#c9a96e" opacity="0.1"/>
+    <rect x="200" y="112" width="30" height="2" rx="1" fill="#c9a96e" opacity="0.7"/>
+    <rect x="236" y="112" width="20" height="2" rx="1" fill="#c9a96e" opacity="0.4"/>
+    <rect x="262" y="112" width="50" height="2" rx="1" fill="#c9a96e" opacity="0.5"/>
+  </g>
+
+  <!-- Bottom data readout -->
+  <g opacity="0.6">
+    <rect x="192" y="390" width="128" height="16" rx="2" fill="#c9a96e" opacity="0.1"/>
+    <rect x="200" y="394" width="50" height="2" rx="1" fill="#c9a96e" opacity="0.7"/>
+    <rect x="256" y="394" width="25" height="2" rx="1" fill="#c9a96e" opacity="0.4"/>
+    <rect x="287" y="394" width="25" height="2" rx="1" fill="#c9a96e" opacity="0.5"/>
+  </g>
+
+  <!-- Outer decorative ring -->
+  <circle cx="256" cy="256" r="245" fill="none" stroke="#c9a96e" stroke-width="1" opacity="0.15"/>
+
+  <!-- Small dot accents -->
+  <circle cx="256" cy="46" r="3" fill="#c9a96e" opacity="0.5" filter="url(#softglow)"/>
+  <circle cx="256" cy="466" r="3" fill="#c9a96e" opacity="0.5" filter="url(#softglow)"/>
+</svg>
