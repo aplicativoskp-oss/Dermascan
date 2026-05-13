@@ -144,7 +144,6 @@ Schema obrigatorio:
 }`;
 
 async function analyzeWithClaude(base64Image) {
-  async function analyzeWithClaude(base64Image) {
   const response = await fetch("/.netlify/functions/analyze", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -153,26 +152,6 @@ async function analyzeWithClaude(base64Image) {
   const data = await response.json();
   if (!response.ok) throw new Error(data.error || "Falha na analise.");
   return data;
-}
-      model: "claude-sonnet-4-20250514",
-      max_tokens: 1400,
-      messages: [{
-        role: "user",
-        content: [
-          { type: "image", source: { type: "base64", media_type: "image/jpeg", data: base64Image } },
-          { type: "text", text: ANALYSIS_PROMPT }
-        ]
-      }]
-    })
-  });
-  if (!response.ok) {
-    const err = await response.json().catch(() => ({}));
-    throw new Error(err?.error?.message || "Falha na analise. Tente novamente.");
-  }
-  const data = await response.json();
-  const raw = (data.content || []).map(i => i.text || "").join("");
-  const clean = raw.replace(/^```json\s*/i, "").replace(/```\s*$/i, "").trim();
-  return JSON.parse(clean);
 }
 
 function resizeToBase64(file, maxDim = 1280, quality = 0.85) {
