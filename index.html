@@ -50,6 +50,29 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Josefi
 .btn-primary{width:100%;max-width:360px;min-height:52px;background:var(--gold);color:var(--bg);border:none;border-radius:2px;padding:16px;font-family:'Josefin Sans',sans-serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;font-weight:400;cursor:pointer;transition:all .2s;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
 .btn-primary:active:not(:disabled){background:var(--gold2);}
 .btn-primary:disabled{opacity:.4;cursor:not-allowed;}
+  .whatsapp-btn{
+display:block;
+width:100%;
+min-height:52px;
+background:#25D366;
+color:#fff;
+border:none;
+border-radius:2px;
+padding:16px;
+font-family:'Josefin Sans',sans-serif;
+font-size:10px;
+letter-spacing:5px;
+text-transform:uppercase;
+font-weight:400;
+cursor:pointer;
+margin-top:12px;
+text-align:center;
+text-decoration:none;
+line-height:20px;
+box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
+touch-action:manipulation;
+  }
 .notice{max-width:360px;width:100%;font-size:11px;color:var(--text3);line-height:1.8;background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:12px 16px;letter-spacing:.5px;}
 .consent-row{max-width:360px;width:100%;display:flex;align-items:flex-start;gap:10px;font-size:11px;color:var(--text2);line-height:1.7;cursor:pointer;}
 .consent-row input{margin-top:3px;accent-color:var(--gold);flex-shrink:0;width:16px;height:16px;}
@@ -502,6 +525,13 @@ function App() {
               <button className="btn-primary" onClick={analyze} disabled={!previewSrc}>
                 &#10022; Analisar
               </button>
+              <a
+  href={`https://wa.me/5541992015857?text=${encodeURIComponent("Ola! Acabei de fazer minha analise no DermaScan Harmony e gostaria de mais informacoes!")}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="whatsapp-btn">
+  &#128172; Falar com Especialista
+</a>
             </div>
           )}
 
